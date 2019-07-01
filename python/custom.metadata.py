@@ -55,7 +55,7 @@ cm_template = """<?xml version="1.0" encoding="UTF-8"?>
         <value xsi:type="xsd:string">{12}</value>
     </values>
     <values>
-        <field>BOSS_Execution_Contact_ID__c</field>
+        <field>BOSS_Invoice_Contact_Description__c</field>
         <value xsi:type="xsd:string">{13}</value>
     </values>
 </CustomMetadata>
