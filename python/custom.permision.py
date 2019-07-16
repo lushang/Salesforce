@@ -10,11 +10,10 @@ cm_template = """<?xml version="1.0" encoding="UTF-8"?>
 """
 
 with open('cp.csv', newline='') as csvfile:
-    reader = csv.reader(csvfile, delimiter=',')
+    reader = csv.DictReader(csvfile, delimiter=',')
     for row in reader:
-        # print(len(row))
-        cm = cm_template.format(row[4].strip(), row[1].strip())
-        name = row[2].strip()
+        cm = cm_template.format(row["Description"].strip(), row["MasterLabel"].strip())
+        name = row["DeveloperName"].strip()
         # name = name.replace(' ', '_')
         cm_file = open(name + '.customPermission', 'w', encoding='utf-8')
         cm_file.write(cm)

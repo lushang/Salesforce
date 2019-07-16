@@ -62,14 +62,17 @@ cm_template = """<?xml version="1.0" encoding="UTF-8"?>
 """
 
 with open('cmd.csv', newline='') as csvfile:
-    reader = csv.reader(csvfile, delimiter=',')
+    reader = csv.DictReader(csvfile, delimiter=',')
     for row in reader:
         # print(len(row))
-        cm = cm_template.format(row[0].strip(), row[1].strip(), row[2].strip()
-                , row[3].strip(), row[4].strip(), row[5].strip()
-                , row[6].strip(), row[7].strip(), row[8].strip(), row[9].strip()
-                , row[10].strip(), row[11].strip(), row[12].strip(), row[13].strip())
-        name = row[0].strip()
+        cm = cm_template.format(row['Label'].strip(), row["BOSS Execution Affiliate"].strip()
+                , row["BOSS Execution Contact ID"].strip()
+                , row["Cost Code"].strip(), row["Entity"].strip(), row["FCode"].strip()
+                , row["LOB"].strip(), row["Location"].strip(), row["Project Template"].strip()
+                , row["Sales Person Description"].strip()
+                , row["Sales Person ID"].strip(), row["SBU"].strip(), row["Site Lab Profit Code"].strip()
+                , row["BOSS Invoice Contact Desc"].strip())
+        name = row["Label"].strip()
         # name = name.replace(' ', '_')
         cm_file = open('FCode_X_SBU.'+ name + '.md', 'w', encoding='utf-8')
         cm_file.write(cm)
