@@ -1,0 +1,1417 @@
+{
+    "aura:applicationEvent": {
+        "attrs": [],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "The root event of the event hierarchy for all events of type=\"APPLICATION\""
+    },
+    "aura:componentEvent": {
+        "attrs": [],
+        "eventType": "COMPONENT",
+        "access": "global",
+        "description": "The root event of the event hierarchy for all events of type=\"APPLICATION\""
+    },
+    "aura:doneRendering": {
+        "attrs": [],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Indicates that the initial rendering of the root application or root component has completed."
+    },
+    "aura:doneWaiting": {
+        "attrs": [],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Indicates that the client-side framework is done waiting for a response to a server request.  This will always be preceded by a aura:waiting event."
+    },
+    "aura:locationChange": {
+        "attrs": [
+            {
+                "name": "token",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "The new hash part of the url"
+            },
+            {
+                "name": "querystring",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "The query string portion of the hash that is stripped off and applied to the event as parameters."
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Indicates that the hash part of the url in the brower's location bar has been modified."
+    },
+    "aura:methodCall": {
+        "attrs": [
+            {
+                "name": "name",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "The name of the method called."
+            },
+            {
+                "name": "arguments",
+                "type": "list",
+                "access": "global",
+                "required": false,
+                "description": "The list of arguments passed into the public method."
+            }
+        ],
+        "eventType": "COMPONENT",
+        "access": "global",
+        "description": "Indicates that a public method was called."
+    },
+    "aura:noAccess": {
+        "attrs": [
+            {
+                "name": "redirectURL",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "A url that the server says the application should redirect the browser to when this event fires."
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Indicates that a requested resource is not accessible due to security constraints on that resource."
+    },
+    "aura:systemError": {
+        "attrs": [
+            {
+                "name": "message",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "The message to be displayed during an error."
+            },
+            {
+                "name": "error",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "The system error that's returned."
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Indicates that an error has occurred."
+    },
+    "aura:valueChange": {
+        "attrs": [
+            {
+                "name": "expression",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "The expression that triggered the value change."
+            },
+            {
+                "name": "oldValue",
+                "type": "object",
+                "access": "global",
+                "required": false,
+                "description": "The previous value that was changed."
+            },
+            {
+                "name": "value",
+                "type": "object",
+                "access": "global",
+                "required": false,
+                "description": "The new value."
+            },
+            {
+                "name": "index",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "If the handler was registered through an ArrayValue or MapValue, the name/index of the changed Value in that ArrayValue or MapValue"
+            }
+        ],
+        "eventType": "VALUE",
+        "access": "global",
+        "description": "Indicates that a Value has changed."
+    },
+    "aura:valueDestroy": {
+        "attrs": [
+            {
+                "name": "value",
+                "type": "object",
+                "access": "global",
+                "required": false,
+                "description": "The component that is being destroyed."
+            }
+        ],
+        "eventType": "VALUE",
+        "access": "global",
+        "description": "Indicates that a component is being destroyed."
+    },
+    "aura:valueEvent": {
+        "attrs": [],
+        "eventType": "VALUE",
+        "access": "global",
+        "description": "The root event of the event hierarchy for all events of type=\"VALUE\""
+    },
+    "aura:valueInit": {
+        "attrs": [
+            {
+                "name": "value",
+                "type": "object",
+                "access": "global",
+                "required": false,
+                "description": "The component that initialized."
+            }
+        ],
+        "eventType": "VALUE",
+        "access": "global",
+        "description": "Indicates that a component has been initialized."
+    },
+    "aura:valueRender": {
+        "attrs": [
+            {
+                "name": "value",
+                "type": "object",
+                "access": "global",
+                "required": false,
+                "description": "The component that rendered."
+            }
+        ],
+        "eventType": "VALUE",
+        "access": "global",
+        "description": "Indicates that a component has been rendered."
+    },
+    "aura:waiting": {
+        "attrs": [],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Indicates that the client-side framework is currently awaiting a response to a server request."
+    },
+    "force:closeQuickAction": {
+        "attrs": [],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Closes a quick action panel. Only one quick action panel can be open in the app at a time."
+    },
+    "force:createRecord": {
+        "attrs": [
+            {
+                "name": "entityApiName",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "Required. The API name of the custom or standard object, such as \"Account\", \"Case\", \"Contact\", \"Lead\", \"Opportunity\", or \"namespace__objectName__c\"."
+            },
+            {
+                "name": "recordTypeId",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "Non-null if recordTypes are enabled. Null means Master RecordType."
+            },
+            {
+                "name": "defaultFieldValues",
+                "type": "map",
+                "access": "global",
+                "required": false,
+                "description": "Prepopulates fields on a record create panel, including fields not displayed on the panel. ID fields and rich text fields can't be prepopulated. Users must have create access to prepopulated fields. Errors during saving that are caused by field access limitations do not display error messages.         "
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Event fired to show the Full Record Create panel"
+    },
+    "force:editRecord": {
+        "attrs": [
+            {
+                "name": "recordId",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": null
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Displays the record edit screen for a given record"
+    },
+    "force:navigateHome": {
+        "attrs": [],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": null
+    },
+    "force:navigateToComponent": {
+        "attrs": [
+            {
+                "name": "componentDef",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "The component to navigate to, for example, c:myComponent."
+            },
+            {
+                "name": "componentAttributes",
+                "type": "object",
+                "access": "global",
+                "required": false,
+                "description": "The attributes for the component."
+            },
+            {
+                "name": "isredirect",
+                "type": "boolean",
+                "access": "global",
+                "required": false,
+                "description": "Specifies whether the navigation is a redirect. If true, the browser replaces the current URL with the new one in the navigation history. This value defaults to false."
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Navigates from a Lightning component to another."
+    },
+    "force:navigateToList": {
+        "attrs": [
+            {
+                "name": "listViewId",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The ID of the list view to be displayed"
+            },
+            {
+                "name": "listViewName",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "Specifies the name for the list view and doesn't need to match the actual name. To use the actual name that's saved for the list view, set listViewName to null."
+            },
+            {
+                "name": "scope",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The name of the sObject in the view, for example, 'Account' or 'MyObject__c'"
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Navigates to the list view specified by listViewId."
+    },
+    "force:navigateToObjectHome": {
+        "attrs": [
+            {
+                "name": "scope",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "name or key prefix of entity to display object home for."
+            },
+            {
+                "name": "resetHistory",
+                "type": "boolean",
+                "access": "global",
+                "required": false,
+                "description": "Set to true to reset history"
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "used to navigate to object home"
+    },
+    "force:navigateToRelatedList": {
+        "attrs": [
+            {
+                "name": "relatedListId",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The API name of the related list to display. For standard objects it is typically the related list's entity api name in plural form, such as 'Contacts' or '\u200bOpportunitie\u200bs'. For custom objects it takes the form of '{\u200bYourCustom\u200bRelationship\u200bLabel}__r' "
+            },
+            {
+                "name": "parentRecordId",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The ID of the parent record"
+            },
+            {
+                "name": "entityApiName",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "The entity API name of the related list"
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Navigates to the related list specified by parentRecordId."
+    },
+    "force:navigateToSObject": {
+        "attrs": [
+            {
+                "name": "networkId",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "Network that the event is associated with."
+            },
+            {
+                "name": "recordId",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The record ID"
+            },
+            {
+                "name": "slideDevName",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "The slideDevName of the slide to navigate to. By default, options are 'chatter', 'related', 'detail'."
+            },
+            {
+                "name": "isredirect",
+                "type": "boolean",
+                "access": "global",
+                "required": false,
+                "description": "If we are redirecting in place, we don't want to create 2 history entries for hybrid. Instead hybrid ignores redirects as a history entry."
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Navigates to an sObject record specified by recordId."
+    },
+    "force:navigateToURL": {
+        "attrs": [
+            {
+                "name": "networkId",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "Network that the event is associated with."
+            },
+            {
+                "name": "isredirect",
+                "type": "boolean",
+                "access": "global",
+                "required": false,
+                "description": "If we are redirecting in place, we don't want to create 2 history entries for hybrid. Instead hybrid ignores redirects as a history entry."
+            },
+            {
+                "name": "url",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The URL of the target"
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Navigates to the specified URL."
+    },
+    "force:recordSave": {
+        "attrs": [],
+        "eventType": "COMPONENT",
+        "access": "global",
+        "description": "Record save request"
+    },
+    "force:recordSaveSuccess": {
+        "attrs": [],
+        "eventType": "COMPONENT",
+        "access": "global",
+        "description": "Indicates that the record has been successfully saved."
+    },
+    "force:refreshView": {
+        "attrs": [],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": null
+    },
+    "force:showToast": {
+        "attrs": [
+            {
+                "name": "title",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "Specifies the title for a message to display. The title is shown above the message in a slightly larger font."
+            },
+            {
+                "name": "duration",
+                "type": "integer",
+                "access": "global",
+                "required": false,
+                "description": "Length of time the toast is visible for, in milliseconds. Applies to 'dismissible' or 'pester' toast modes. The default is 5000ms if the provided value is less than 5000ms."
+            },
+            {
+                "name": "message",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The message to display in the toast."
+            },
+            {
+                "name": "key",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "Icon to use when toast type is 'other'. Icon keys are available at the Lightning Design System Icons page."
+            },
+            {
+                "name": "mode",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "The toast mode, which controls how users can dismiss the toast. Valid values are 'pester' and 'sticky'. The default is 'dismissible', which displays the close button."
+            },
+            {
+                "name": "type",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "The toast type, which can be 'error', 'warning', 'success', or 'info'. The default is 'other', which is styled like an 'info' toast and doesn\u2019t display an icon, unless specified by the key attribute."
+            },
+            {
+                "name": "messageTemplate",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "Overwrites message string with the specified message. Requires messageTemplateData."
+            },
+            {
+                "name": "messageTemplateData",
+                "type": "object[]",
+                "access": "global",
+                "required": false,
+                "description": "An array of text and actions to be used in messageTemplate."
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Displays page-level toasts."
+    },
+    "forceChatter:customOpenFile": {
+        "attrs": [
+            {
+                "name": "recordId",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "ID of the file record. This must not be empty."
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Adds custom logic for file open/tap action for Communities on mobile and tablet devices."
+    },
+    "forceChatter:postCreated": {
+        "attrs": [
+            {
+                "name": "feedItemId",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "The id of the feed item that has been created"
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Fired when a post is made"
+    },
+    "forceCommunity:analyticsInteraction": {
+        "attrs": [
+            {
+                "name": "hitType",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The type of hit. Supported types: 'event', 'social', 'exception', 'timing'."
+            },
+            {
+                "name": "eventCategory",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "The type or category of item that was interacted with. Required for 'event' hitType."
+            },
+            {
+                "name": "eventAction",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "The type of action. Required for 'event' hitType."
+            },
+            {
+                "name": "eventLabel",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "A label for providing additional event information."
+            },
+            {
+                "name": "eventValue",
+                "type": "integer",
+                "access": "global",
+                "required": false,
+                "description": "A positive numeric value associated with the event."
+            },
+            {
+                "name": "socialNetwork",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "The network on which the action occurs. Required for 'social' hitType."
+            },
+            {
+                "name": "socialAction",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "The type of action that happens. Required for 'social' hitType."
+            },
+            {
+                "name": "socialTarget",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "Specifies the target of a social interaction. Required for 'social' hitType."
+            },
+            {
+                "name": "exDescription",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "A description of the exception."
+            },
+            {
+                "name": "exFatal",
+                "type": "boolean",
+                "access": "global",
+                "required": false,
+                "description": "True if the exception was fatal."
+            },
+            {
+                "name": "timingCategory",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "A string for categorizing all user timing variables into logical groups. Required for 'timing' hitType."
+            },
+            {
+                "name": "timingVar",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "A string to identify the variable being recorded. Required for 'timing' hitType."
+            },
+            {
+                "name": "timingValue",
+                "type": "integer",
+                "access": "global",
+                "required": false,
+                "description": "The number of milliseconds in elapsed time to report to Google Analytics. Required for 'timing' hitType."
+            },
+            {
+                "name": "timingLabel",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "A string that can be used to add flexibility in visualizing user timings in the reports."
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Tracks events triggered by custom components in communities and sends the data to Google Analytics."
+    },
+    "forceCommunity:routeChange": {
+        "attrs": [],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "This event is fired whenever a route url is changed"
+    },
+    "lightning:conversationAgentSend": {
+        "attrs": [
+            {
+                "name": "recordId",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "Record ID of the conversation"
+            },
+            {
+                "name": "content",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The text of a message in the chat log."
+            },
+            {
+                "name": "name",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The name of the agent who is attempting to send the message as it appears in the chat log."
+            },
+            {
+                "name": "type",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The type of message that was received\u2014for example, agent."
+            },
+            {
+                "name": "timestamp",
+                "type": "date",
+                "access": "global",
+                "required": true,
+                "description": "The date and time the agent attempted to send the chat message."
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Indicates an agent sent a message"
+    },
+    "lightning:conversationChatEnded": {
+        "attrs": [
+            {
+                "name": "recordId",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "Record ID of the conversation"
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Indicates a conversation has ended"
+    },
+    "lightning:conversationCustomEvent": {
+        "attrs": [
+            {
+                "name": "recordId",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "Record ID of the conversation"
+            },
+            {
+                "name": "type",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "Name of the custom event"
+            },
+            {
+                "name": "data",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "Data attached to the custom event"
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Indicates receipt of a custom event on a conversation"
+    },
+    "lightning:conversationNewMessage": {
+        "attrs": [
+            {
+                "name": "recordId",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "Record ID of the conversation"
+            },
+            {
+                "name": "content",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The text of a message in the chat log."
+            },
+            {
+                "name": "name",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The name of the agent who is attempting to send the message as it appears in the chat log."
+            },
+            {
+                "name": "type",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The type of message that was received\u2014for example, agent."
+            },
+            {
+                "name": "timestamp",
+                "type": "date",
+                "access": "global",
+                "required": true,
+                "description": "The date and time the agent attempted to send the chat message."
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Indicates receipt of a end user of a conversation"
+    },
+    "lightning:omniChannelLoginSuccess": {
+        "attrs": [
+            {
+                "name": "statusId",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The ID of the agent\u2019s current presence status."
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Fired when an Omni-Channel user is logged in successfully."
+    },
+    "lightning:omniChannelLogout": {
+        "attrs": [],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Fired when an Omni-Channel user is logged out."
+    },
+    "lightning:omniChannelStatusChanged": {
+        "attrs": [
+            {
+                "name": "statusId",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The ID of the agent\u2019s current presence status."
+            },
+            {
+                "name": "channels",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The JSON string of channel objects."
+            },
+            {
+                "name": "statusName",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The name the agent\u2019s current presence status."
+            },
+            {
+                "name": "statusApiName",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The API name of the agent\u2019s current presence status."
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Fired when an Omni-Channel user changes his or her status."
+    },
+    "lightning:omniChannelWorkAccepted": {
+        "attrs": [
+            {
+                "name": "workItemId",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The ID of the object that\u2019s routed through Omni-Channel."
+            },
+            {
+                "name": "workId",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The ID of a work assignment that\u2019s routed to an agent."
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Fired when a user accepts a work assignment, or when a work assignment is automatically accepted."
+    },
+    "lightning:omniChannelWorkAssigned": {
+        "attrs": [
+            {
+                "name": "workItemId",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The ID of the object that\u2019s routed through Omni-Channel."
+            },
+            {
+                "name": "workId",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The ID of a work assignment that\u2019s routed to an agent."
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Fired when a user is assigned a new work item."
+    },
+    "lightning:omniChannelWorkClosed": {
+        "attrs": [
+            {
+                "name": "workItemId",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The ID of the object that\u2019s routed through Omni-Channel."
+            },
+            {
+                "name": "workId",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The ID of a work assignment that\u2019s routed to an agent."
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Fired when a user closes a tab in the console that\u2019s associated with a work item."
+    },
+    "lightning:omniChannelWorkDeclined": {
+        "attrs": [
+            {
+                "name": "workItemId",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The ID of the object that\u2019s routed through Omni-Channel."
+            },
+            {
+                "name": "workId",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The ID of a work assignment that\u2019s routed to an agent."
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Fired when a user declines a work assignment."
+    },
+    "lightning:omniChannelWorkloadChanged": {
+        "attrs": [
+            {
+                "name": "configuredCapacity",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The configured capacity for the agent."
+            },
+            {
+                "name": "previousWorkload",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The agent\u2019s workload before the change."
+            },
+            {
+                "name": "newWorkload",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The agent\u2019s new workload after the change."
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Fired when an agent\u2019s workload changes."
+    },
+    "lightning:openFiles": {
+        "attrs": [
+            {
+                "name": "recordIds",
+                "type": "string[]",
+                "access": "global",
+                "required": true,
+                "description": "IDs of the records to open. This must not be empty. "
+            },
+            {
+                "name": "selectedRecordId",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "ID of the record to open first among the one specified in the recordIds attribute. If this value is not provided or if the value provided is not in the list, the first element from the list will be used. "
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "The lightning:openFiles event is no longer recommended. Use the Lightning navigation service instead. Application event used to open one or more file records. This event triggers a modal file previewer or download depending on the form factor. "
+    },
+    "lightning:sendChatterExtensionPayload": {
+        "attrs": [
+            {
+                "name": "payload",
+                "type": "object",
+                "access": "global",
+                "required": true,
+                "description": "Payload data to be saved with the feed item."
+            },
+            {
+                "name": "extensionTitle",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "Title for the extension to be saved with the feed item."
+            },
+            {
+                "name": "extensionDescription",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "Description for the extension to be saved with the feed item"
+            },
+            {
+                "name": "extensionThumbnailUrl",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "thumbnailUrl for the extension to be saved with the feedItem"
+            }
+        ],
+        "eventType": "COMPONENT",
+        "access": "global",
+        "description": "For Chatter Rich Publisher Apps only. Sends the payload and metadata that needs to be saved for the extension with the feed item."
+    },
+    "lightning:tabClosed": {
+        "attrs": [
+            {
+                "name": "tabId",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The closed tab ID."
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Fires when a Console workspace or subtab has been successfully closed."
+    },
+    "lightning:tabCreated": {
+        "attrs": [
+            {
+                "name": "tabId",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The newly created tab ID."
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Fires when a Console workspace or subtab has been successfully created."
+    },
+    "lightning:tabFocused": {
+        "attrs": [
+            {
+                "name": "previousTabId",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "The previously focused tab ID."
+            },
+            {
+                "name": "currentTabId",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The currently focused tab ID."
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Fires when a Console workspace or subtab is focused."
+    },
+    "lightning:tabRefreshed": {
+        "attrs": [
+            {
+                "name": "tabId",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The currently refreshed tab ID."
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Fires when a Console workspace or subtab has been successfully refreshed."
+    },
+    "lightning:tabReplaced": {
+        "attrs": [
+            {
+                "name": "tabId",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The ID of the refreshed tab."
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Fires when a Console primary tab or subtab has been successfully replaced. For example, when saving a new record and the create form is replaced with the newly created Record Home."
+    },
+    "lightning:tabUpdated": {
+        "attrs": [
+            {
+                "name": "tabId",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The ID of the tab that was updated."
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Fires when a Console workspace or subtab has been updated. This may include label, icon, and/or content changes."
+    },
+    "lightningcommunity:deflectionSignal": {
+        "attrs": [
+            {
+                "name": "sourceType",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "Descriptor of where deflection occured. Only signals with supported types will get processed. sourceType is synonymous with signalAgent."
+            },
+            {
+                "name": "source",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "The unique identifier of how the user arrived at the deflection item"
+            },
+            {
+                "name": "destinationType",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "Entity type of the deflection item"
+            },
+            {
+                "name": "destination",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "The id of the deflection item"
+            },
+            {
+                "name": "payload",
+                "type": "object",
+                "access": "global",
+                "required": false,
+                "description": "Additional information about the deflection signal. The content of the payload depends on the sourceType."
+            },
+            {
+                "name": "shouldSubmitSourceTypeSignals",
+                "type": "boolean",
+                "access": "global",
+                "required": false,
+                "description": "Once an event is fired with shouldSubmitSourceTypeSignals=true,all signals of that                      sourceType are submitted to the server in a single batch to be processed. This should always be true unless signals are logically dependent on each other and must be processed together."
+            },
+            {
+                "name": "callback",
+                "type": "object",
+                "access": "global",
+                "required": false,
+                "description": "Callback function invoked after signal is received and processed. Only called if shouldSubmitSourceTypeSignals=true."
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "This event is fired whenever a community user interacts with a deflection item (an item determined to be responsible for a case deflection).                                                                          Reports can then be created on supported signal types."
+    },
+    "ltng:afterScriptsLoaded": {
+        "attrs": [],
+        "eventType": "COMPONENT",
+        "access": "global",
+        "description": "Fired when ltng:require has loaded all scripts listed in ltng:require.scripts"
+    },
+    "ltng:beforeLoadingResources": {
+        "attrs": [],
+        "eventType": "COMPONENT",
+        "access": "global",
+        "description": "Fired before ltng:require attempts to load any requested resources"
+    },
+    "ltng:selectSObject": {
+        "attrs": [
+            {
+                "name": "recordId",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The record ID associated with the record to select."
+            },
+            {
+                "name": "channel",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "Represents the channel name. Specify this attribute if you want particular components to process some event messages while ignoring others."
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Sends recordId when an object was selected in the UI"
+    },
+    "ltng:sendMessage": {
+        "attrs": [
+            {
+                "name": "message",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "A message in the form of a String or JSON."
+            },
+            {
+                "name": "channel",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "Represents the channel name. Use a channel to enable a component to filter down to specific events."
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Sends some data (String or JSON) to other components within the application"
+    },
+    "ui:clearErrors": {
+        "attrs": [],
+        "eventType": "COMPONENT",
+        "access": "global",
+        "description": "Indicates that validation errors are cleared."
+    },
+    "ui:collapse": {
+        "attrs": [],
+        "eventType": "COMPONENT",
+        "access": "global",
+        "description": "Indicates that a component is collapsed."
+    },
+    "ui:expand": {
+        "attrs": [],
+        "eventType": "COMPONENT",
+        "access": "global",
+        "description": "Indicates that a component is expanded."
+    },
+    "ui:menuFocusChange": {
+        "attrs": [
+            {
+                "name": "previousItem",
+                "type": "component[]",
+                "access": "global",
+                "required": false,
+                "description": "The menu item that's previously focused."
+            },
+            {
+                "name": "currentItem",
+                "type": "component[]",
+                "access": "global",
+                "required": false,
+                "description": "The menu item that's currently focused."
+            }
+        ],
+        "eventType": "COMPONENT",
+        "access": "global",
+        "description": "Indicates that menu item focus is changed inside a menu component."
+    },
+    "ui:menuSelect": {
+        "attrs": [
+            {
+                "name": "selectedItem",
+                "type": "component[]",
+                "access": "global",
+                "required": false,
+                "description": "The menu item that's selected."
+            },
+            {
+                "name": "hideMenu",
+                "type": "boolean",
+                "access": "global",
+                "required": false,
+                "description": "Hides menu if set to true."
+            },
+            {
+                "name": "deselectSiblings",
+                "type": "boolean",
+                "access": "global",
+                "required": false,
+                "description": "Deselects the siblings of the currently selected menu item."
+            },
+            {
+                "name": "focusTrigger",
+                "type": "boolean",
+                "access": "global",
+                "required": false,
+                "description": "Sets focus to menuTrigger."
+            }
+        ],
+        "eventType": "COMPONENT",
+        "access": "global",
+        "description": "Indicates that a menu item inside a menu component is selected."
+    },
+    "ui:menuTriggerPress": {
+        "attrs": [],
+        "eventType": "COMPONENT",
+        "access": "global",
+        "description": "Indicates that the menu trigger is clicked."
+    },
+    "ui:validationError": {
+        "attrs": [],
+        "eventType": "COMPONENT",
+        "access": "global",
+        "description": "Indicates that the component has validation error(s)."
+    },
+    "wave:discover": {
+        "attrs": [
+            {
+                "name": "UID",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "Optional identifier that will be included in the response data."
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Wave event that wave dashboard listens and responds to with a discoverResponse event."
+    },
+    "wave:discoverResponse": {
+        "attrs": [
+            {
+                "name": "id",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "Dashboard Id."
+            },
+            {
+                "name": "type",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "Type of component, usually dashboard."
+            },
+            {
+                "name": "title",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "Title of the dashboard."
+            },
+            {
+                "name": "isLoaded",
+                "type": "boolean",
+                "access": "global",
+                "required": true,
+                "description": "Whether dashboard is loaded or still loading."
+            },
+            {
+                "name": "UID",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "Optional parameter sent with the request."
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Response event to a wave:discover request."
+    },
+    "wave:pageChange": {
+        "attrs": [
+            {
+                "name": "pageid",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The dashboard page that should be displayed if value is supplied."
+            },
+            {
+                "name": "devName",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The dev name for the Wave Asset."
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Event that updates the dashboard with the specified pageid."
+    },
+    "wave:selectionChanged": {
+        "attrs": [
+            {
+                "name": "noun",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "The type of the Wave asset for which a selection change event occurred."
+            },
+            {
+                "name": "verb",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "The action that occurred on the Wave asset."
+            },
+            {
+                "name": "id",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "The identifier of the Wave asset for which a selection change event occurred."
+            },
+            {
+                "name": "payload",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "Contains the selection information from the asset that fired the event."
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Wave event that sends selection change information to the Lightning component."
+    },
+    "wave:update": {
+        "attrs": [
+            {
+                "name": "id",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The identifier for the Wave asset, in the form of a standard 18-character ID."
+            },
+            {
+                "name": "value",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The JSON representing the filter or selection to be applied to the asset."
+            },
+            {
+                "name": "type",
+                "type": "string",
+                "access": "global",
+                "required": true,
+                "description": "The type of the Wave asset. Currently, only dashboard is supported."
+            },
+            {
+                "name": "devName",
+                "type": "string",
+                "access": "global",
+                "required": false,
+                "description": "The dev name for the Wave Asset."
+            }
+        ],
+        "eventType": "APPLICATION",
+        "access": "global",
+        "description": "Event that updates the Wave asset with the specified filter or selection."
+    }
+}
