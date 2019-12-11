@@ -58,10 +58,22 @@ cm_template = """<?xml version="1.0" encoding="UTF-8"?>
         <field>BOSS_Invoice_Contact_Description__c</field>
         <value xsi:type="xsd:string">{13}</value>
     </values>
+    <values>
+        <field>BOSS_Order_Creator__c</field>
+        <value xsi:type="xsd:string">{14}</value>
+    </values>
+    <values>
+        <field>BOSS_Org_Name__c</field>
+        <value xsi:type="xsd:string">{15}</value>
+    </values>
+     <values>
+        <field>BOSS_IDN_Order_Creator__c</field>
+        <value xsi:type="xsd:string">{16}</value>
+    </values>
 </CustomMetadata>
 """
 
-with open('cmd.csv', newline='') as csvfile:
+with open('data/cmd.csv', newline='') as csvfile:
     reader = csv.DictReader(csvfile, delimiter=',')
     for row in reader:
         # print(len(row))
@@ -71,9 +83,11 @@ with open('cmd.csv', newline='') as csvfile:
                 , row["LOB"].strip(), row["Location"].strip(), row["Project Template"].strip()
                 , row["Sales Person Description"].strip()
                 , row["Sales Person ID"].strip(), row["SBU"].strip(), row["Site Lab Profit Code"].strip()
-                , row["BOSS Invoice Contact Desc"].strip())
+                , row["BOSS Invoice Contact Desc"].strip()
+                , row["BOSS Order Creator"].strip(), row["BOSS Org Name"].strip()
+                , row["BOSS IDN Order Creator"].strip())
         name = row["Label"].strip()
         # name = name.replace(' ', '_')
-        cm_file = open('FCode_X_SBU.'+ name + '.md', 'w', encoding='utf-8')
+        cm_file = open('data/FCode_X_SBU.'+ name + '.md', 'w', encoding='utf-8')
         cm_file.write(cm)
         cm_file.close()
